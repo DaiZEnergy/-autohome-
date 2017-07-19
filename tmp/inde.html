@@ -1,0 +1,247 @@
+
+    <!--  最外层包裹容器 -->
+    <div id="wrapper" direc>
+        <!-- 头部 -->
+        <header class="header">
+            <a href="#/" class="logo-h fl"><img src="images/logo.png" alt=""></a>
+            <a href="script:;" class="user fr">
+                <img src="images/head.gif" alt="">
+                <i class="header_meg">1</i>
+            </a>
+        </header>
+        <!-- 导航 -->
+        <nav class="nav">
+            <a href="#/">推荐</a>
+            <a href="#/list">找车</a>
+            <a href="#/shopcar">车商城</a>
+            <a href="">发现</a>
+        </nav>
+        <!-- 下一块 -->
+        <section class="swiper-container scroll1">
+            <div class="swiper-wrapper scroll">
+                <a href="" class="swiper-slide srrolla">文章</a>
+                <a href="" class="swiper-slide srrolla">说客</a>
+                <a href="" class="swiper-slide srrolla">优创+</a>
+                <a href="" class="swiper-slide srrolla">视频</a>
+                <a href="" class="swiper-slide srrolla">直播</a>
+                <a href="" class="swiper-slide srrolla">游记</a>
+                <a href="" class="swiper-slide srrolla">商城</a>
+            </div>
+        </section>
+        <!-- 搜索框 -->
+        <form action="" class="form-nav">
+            <div class="form-d">
+                <input type="text" class="sea" placeholder="梅赛德斯奔驰">
+                <span class="glyphicon glyphicon-camera camera"></span>
+                <button class="glyphicon glyphicon-search "></button>
+            </div>
+        </form>
+        <!-- 下一块选项卡 -->
+        <div class="maina">
+            <div class="main-t" ng-click="select='one'" ng-init="select='one'" >热门品牌</div>
+            <div class="main-t" ng-click="select='two'">主打车</div>
+            <div class="main-t" ng-click="select='three'">二手车</div>
+        </div>
+        <div class="mian-s1" ng-switch="select">
+            <div class="mian2" ng-switch-when="one">
+                <div>
+                    <a href=""><img src="images/show1.jpg" alt="">
+                        <br>大众</a>
+                </div>
+                <div>
+                    <a href=""><img src="images/show2.jpg" alt="">
+                        <br>丰田</a>
+                </div>
+                <div>
+                    <a href=""><img src="images/show3.jpg" alt="">
+                        <br>福特</a>
+                </div>
+                <div>
+                    <a href=""><img src="images/show4.jpg" alt="">
+                        <br>现代</a>
+                </div>
+                <div>
+                    <a href=""><img src="images/show5.jpg" alt="">
+                        <br>本田</a>
+                </div>
+                <div>
+                    <a href=""><img src="images/show6.jpg" alt="">
+                        <br>宝马</a>
+                </div>
+                <div>
+                    <a href=""><img src="images/show7.jpg" alt="">
+                        <br>吉利</a>
+                </div>
+                <div>
+                    <a href=""><img src="images/show8.jpg" alt="">
+                        <br>奇瑞</a>
+                </div>
+                <div>
+                    <a href=""><img src="images/show9.jpg" alt="">
+                        <br>奥迪</a>
+                </div>
+                <div>
+                    <a href=""><img src="images/show10.jpg" alt="">
+                        <br>更多</a>
+                </div>
+            </div>
+            <div class="mian2" ng-switch-when="two">
+				<ul class="ss">
+					<li>
+					<a href="">0-3万</a>
+					<a href="">3-5万</a>
+					<a href="">5-10万</a>
+					<a href="">10-15万</a>
+					</li>
+					<li>
+					<a href="">	
+					15-20万
+					</a>
+					<a href="">20-30万</a>
+					<a href="">30-50万</a>
+					<a href="">50万以上</a>
+					</li>
+					<li>
+					<a href="">宝马</a>
+					<a href="">大众</a>
+					<a href="">奥迪</a>
+					<a href="">奔驰</a>
+					</li>
+					<li>
+					<a href="">本田</a>
+					<a href="">别克</a>
+					<a href="">福特</a>
+					<a href="">捷豹</a>
+					</li>
+				</ul>
+            </div>
+            <div class="mian2" ng-switch-when="three">    
+                <ul class="ss">
+                    <li>
+                    <a href="">找车</a>
+                    <a href="">买车</a>
+                    <a href="">二手车</a>
+                    <a href="">网上车展</a>
+                    </li>
+                    <li>
+                    <a href=""> 
+                    10-20万
+                    </a>
+                    <a href="">20-30万</a>
+                    <a href="">30-50万</a>
+                    <a href="">50万以上</a>
+                    </li>
+                    <li>
+                    <a href="">轿车</a>
+                    <a href="">跑车</a>
+                    <a href="">suv</a>
+                    <a href="">皮卡</a>
+                    </li>
+                    <li>
+                    <a href="">商务</a>
+                    <a href="">居家</a>
+                    <a href="">运动</a>
+                    <a href="">颜值</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 轮播图 -->
+        <div class=" swiper-container headlines">
+      	  <div class="swiper-wrapper">
+        		<div class="swiper-slide ">
+        			<h1>献给特别的你 帮您选车之父亲节篇</h1><h1>10款适合父亲的汽车</h1>
+                                        
+        			        
+            	
+           		 </div>
+            
+        		<div class="swiper-slide ">
+        			<h1>配LED大灯组 日产发布新聆风首张预告图</h1>
+                             <h1>全新天籁强势来袭</h1>  
+           		 </div>
+            
+        		<div class="swiper-slide ">
+        			<h1>10万元左右高颜值MPV 试驾力帆轩朗1.5T自动豪华型</h1>     
+        			
+        		</div>
+            	
+            </div>
+        </div>
+<!-- 下一块 -->
+     <div class="swiper-container " id="bana">
+  		<div class="swiper-wrapper ">
+   		<div class="swiper-slide"><img src="images/bannar1.jpg" alt=""></div>
+   		<div class="swiper-slide"><img src="images/bannar2.jpg" alt=""></div>
+   		<div class="swiper-slide"><img src="images/bannar3.jpg" alt=""></div>
+   		<div class="swiper-slide"><img src="images/bannar4.jpg" alt=""></div>
+   		<div class="swiper-slide"><img src="images/bannar5.jpg" alt=""></div>
+		</div>
+		<div class="swiper-pagination"></div>
+	</div>
+        <!-- 展示区 -->
+        <div class="list-info">
+            <ul>
+           		 <li class="guanggao">
+           		 	<div class="fn-analyze-a fl">
+           		 		<img src="images/guanggao1.jpg" alt="">
+           		 	</div>
+           		 	<div class="fn-analyze-b fr">
+           		 		<h2>大尺寸互联SUV 奔腾X40 6.68万元起 更享2年0利率</h2>
+
+           		 	</div>
+           		 </li>
+                <li>
+                    <h2>终于等到你 还好我没放弃 苦等一个月 终于等到爱车!</h2>
+                    <div class="showcar">
+                    		<div class="showimag "><img src="images/sm1.jpg" alt=""></div>
+                        	<div class="showimag"><img src="images/sm2.jpg" alt=""></div>
+                        	<div class="showimag"><img src="images/sm3.jpg" alt=""></div>
+                     </div>
+                </li>
+                <li>
+                    <h2>大海般浩渺，星空般深邃——怒提阿特兹2.5蓝天运动版.</h2>
+                   	 <div class="showcar">
+               			   <div class="showimag"><img src="images/sm4.jpg" alt=""></div>
+                        	<div class="showimag"><img src="images/sm5.jpg" alt=""></div>
+                        	<div class="showimag"><img src="images/sm6.jpg" alt=""></div>
+                     </div>
+                </li>
+                <li>
+                    <h2>【大诚小喆】孕妈当车模：有一种踏实，叫做聆听你的心跳！</h2>
+                   	 <div class="showcar">
+                  			  <div class="showimag"><img src="images/sm7.jpg" alt=""></div>
+                        	<div class="showimag"><img src="images/sm8.jpg" alt=""></div>
+                        	<div class="showimag"><img src="images/sm9.jpg" alt=""></div>
+                     </div>
+                </li>
+            </ul>
+         
+        </div>
+       <!--   底部 -->
+           <div class="footer">
+                <div class="skip">电脑版</div>
+                <div class="skip">城市大全</div>
+                <div class="skip">帮助中心</div>
+                <div class="skip">用户反馈</div>
+            </div>
+       
+     <div class="floor-container">
+            <a href="#/" class="floor-a curr">首页</a>
+            <a href="#/list" class="floor-a">列表页</a>
+            <a href="#/shopcar" class=" flybox ">购物车<span class="carnum">{{num}}</span></a> 
+        </div>
+       <!--  重新刷新页面 -->
+      <!--   <div id="updateaa" onclick="location.reload() ">
+                   <span class="glyphicon glyphicon-refresh"></span>
+               </div>
+                -->         <!-- 返回顶部 -->
+        <div id="ret" >
+        	<a href="">
+        		<span class="glyphicon glyphicon-open"></span>
+        	</a>
+        </div>
+    </div>
+     
+      
+ 

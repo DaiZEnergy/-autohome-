@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <link rel="icon" href="images/autohome-icon.ico">
+    <title>汽车之家_我的汽车网站，我的汽车之家</title>
+    <link rel="stylesheet" href="css/1.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/faskclick.js"></script>
+    <script src="js/resp.js"></script>
+    
+</head>
+<body ng-controller="cont">
+    <!-- 内容显示区 -->
+    <div ng-view>
+       <!--  重新刷新页面 -->
+        
+    </div>
+<div class="updateaa" onclick="location.reload()">
+            <span class="glyphicon glyphicon-refresh"></span>
+        </div>
+    
+     <script src="js/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/fly.js"></script>
+    <script>
+  
+    
+        var app=angular.module("myapp",['ngRoute'],RouteConfig);
+
+    function RouteConfig($routeProvider){
+      $routeProvider
+        .when('/',{
+          templateUrl:"tmp/inde.html"
+        })
+         .when('/list',{
+          templateUrl:"tmp/list.html"
+        })
+            .when('/shopcar',{
+          templateUrl:"tmp/shopcar.html"
+        })
+    }
+   /* 指令系统*/
+    app.directive('direc',function(){
+ 
+    return {
+        restrict:'AE', //四种都可以渲染
+        replace : true, 
+       /*每次加载页面重新渲染这里面的内容*/
+        compile:function(){
+
+            var mySwiper = new Swiper('.scroll1', {
+            slidesPerView: 6, //'auto'
+            //slidesPerView : 3.7,
+         });
+
+          var mySwiper1 = new Swiper('#bana', {
+            autoplay: 2000,
+            autoplayDisableOnInteraction: false,
+            loop: true,
+            pagination: '.swiper-pagination',
+            paginationType: 'bullets',
+         });
+             var mySwiper2 = new Swiper('.headlines', {
+            autoplay: 3000,
+            direction : 'vertical',
+            height:50,
+             autoplayDisableOnInteraction: false,
+         });
+     var mySwiper3 = new Swiper('.nav-shopc', {
+            slidesPerView: 5, 
+
+         });
+             
+           
+         /*  var indexRankWrap = $('#nav');
+        console.log(indexRankWrap);
+    window.onscroll = function(){
+     var sT = document.documentElement.scrollTop||document.body.scrollTop;
+    
+     if(sT>=500){
+         indexRankWrap.style.top='0px';
+         indexRankWrap.setAttribute('class','Mfiedxian');
+            
+     }else{
+
+         indexRankWrap.style.top='-40px';
+            
+            
+             indexRankWrap.removeAttribute('class','Mfiedxian');
+
+         }
+          }*/
+ $(function(){
+    $('#ret').click(function(event) {
+        
+                $('body').animate({
+                    'scrollTop':0,
+                },800);
+            });
+    /*滚动事件吸顶导航*/
+    $(window).scroll(function(){
+        if($('body').scrollTop()>300){
+             $('.nav').addClass('Mfiedxian').css({
+                    'top':0,
+                });
+               
+        }else{
+            $('.nav').removeClass("Mfiedxian").css({
+                    'top':-40,
+                });
+                
+               
+        }
+
+         if($('body').scrollTop()>300){
+             $('.header').addClass('Mfiedxian').css({
+                    'top':0,
+                    'background':'#fff',
+                    'width':'100%'
+                });
+               
+        }else{
+            $('.header').removeClass("Mfiedxian").css({
+                    'top':-40,
+                });
+                
+               
+        }
+
+
+
+
+        /*返回顶部*/
+        var a= $('body').scrollTop();
+         
+        if($('body').scrollTop()>50){
+           $('#ret').stop().fadeIn();
+          
+        }else{
+             $('#ret').stop().fadeOut(); 
+        }
+
+          if($('body').scrollTop()>50){
+           $('.updateaa').stop().fadeIn();
+          
+        }else{
+             $('.updateaa').stop().fadeOut(); 
+        }
+
+    })
+    /*点击底部变色*/
+    $('.floor-a').click(function(){
+    $(this).addClass('curr').siblings().removeClass('curr');
+    // console.log(11);
+    });
+});
+     //渲染结束
+        }
+    };
+});
+    app.controller("cont",function($scope,$http){
+        $scope.num=0,
+        $scope.price=0,
+        /*判断是否内容为空*/
+        $scope.cca=function(){
+             if(!$scope.num){
+                confirm("请先将您的爱车加入购物车");
+               $('#myModal').modal('hide')
+            }else{
+                 $('#myModal').modal('show')
+            }
+            
+        }
+        
+        $scope.clearC=function(){
+         
+            angular.forEach($scope.cart,function(item,index){
+                    /*console.log(item); */ 
+                     $scope.cart.splice(0,$scope.cart.length);
+                    $scope.num=0;
+                    $scope.price=0;
+                    $scope.allPrice=0;
+                });
+
+
+        }
+        /*点击添加商品商品fly特效*/
+        $scope.fly=function(){
+            var aBtn=document.querySelectorAll("#addcc");
+       /* console.log(aBtn);*/
+    // 控制器
+       
+                var flyer = $('<img class="u-flyer" src="images/flycar.png">');
+
+            
+            //鼠标在页面点击开始位置计算.
+            var top = $(window).scrollTop();
+            
+            var dh = event.pageY;
+
+            var newh = dh - top;
+
+
+            // 购物车按钮  end在那图片飘到哪
+            var oDiv = $('.flybox').offset();
+
+   /*   console.log(oDiv);*/
+            var newdh = oDiv.top - top;
+            /*console.log(newdh);*/
+            // 我可以设置初始,结束,图片宽度
+            flyer.fly({
+                start: {
+                    left: event.pageX,
+                    top: newh,
+                    // width:1000,
+                    // height:1000,
+                    // 初始的图片样式我可以设置在class类里面
+                },
+                end: {
+                    left: oDiv.left,
+                    top: newdh,
+                    width: 0,
+                    height: 0
+                }
+            });
+      
+    
+
+           function setIco(event) {
+
+            // 变量区,当前按钮,当前图片
+        
+    
+            }
+        }
+     $http({
+                    method:"POST",
+                    url:"./php/index.php",
+                    headers:{
+                        'Content-Type':'application/x-www-form-urlencoded'
+                    }
+                
+                }).then(function(succ){
+                     $scope.data=succ.data;
+                    /* console.log( $scope.data);*/
+                     angular.forEach($scope.data,function(item,index){
+                // console.log(item);
+                 item.num=0;
+               
+                 $scope.price=-(-(item.price));
+            })                   
+                    
+               /*       angular.forEach($scope.data,function(item,index){
+                // console.log(item);
+                        item.num=0;
+                        item.oprice=-(-(item.oprice));
+                 })*/
+                },function(err){
+                        if(err.status===-1){
+                            alert('亲别着急，正在努力加载中');
+                        }
+                })
+
+       /*         
+      angular.forEach($scope.data,function(item,index){
+                // console.log(item);
+                
+                item.oprice=-(-(item.price));
+            })  */
+     $scope.set=function(goodsId,bool){
+                /*console.log(goodsId);*/
+                
+                angular.forEach($scope.data,function(item,index){
+
+                    if(goodsId==item.goodsId){
+                        if(bool){
+                            if(item.num==0){
+                                item.num=1;
+                                 $scope.num++;
+                               
+                                 $scope.cart.push(item);
+                            }else{
+                                
+                                 $scope.num++;
+                                item.num++; 
+                            }
+                        }else{
+                            $scope.num--;
+                         $scope.num= $scope.num<=0?0:$scope.num;
+                                item.num--;
+                                item.num=item.num<=0?0:item.num;
+                                
+                        }
+                        
+                    }
+
+                })
+                    // console.log($scope.cart);
+                
+            }
+        
+         $scope.cart=[];
+
+            $scope.$watch("data",function(){
+              $scope.allPrice=0;
+                angular.forEach($scope.cart,function(item,index){
+                    if(item.num<=0){
+                        $scope.cart.splice(index,1);
+                         /*$scope.num=0;*/
+                       /*  console.log($scope.num);*/
+                        $scope.num+=item.num;
+                       }
+                       $scope.allPrice+=item.num*item.price;
+
+                })
+
+            },true);
+            // $scope.$watch("cart",function(){
+            //   $scope.allPrice=0;
+            //     angular.forEach($scope.cart,function(item,index){
+            //            $scope.allPrice+=item.num*item.price;
+
+            //     })
+
+            /*},true);*/
+            /*删除刚行的商品*/
+        $scope.remcar=function(val){
+           
+                 angular.forEach($scope.cart,function(item,index){
+                   if(val==item.goodsId){
+                        $scope.cart.splice(index,1);
+                        
+                    }
+                         
+                        
+                 
+                        $scope.allPrice=0;
+                         $scope.num=0;
+                angular.forEach($scope.cart,function(item,index){
+                       $scope.allPrice+=item.num*item.price;
+                 $scope.num+=item.num;
+                })
+
+                       
+              
+                      
+                          
+                })
+
+        }
+
+    });  
+
+
+
+    
+    </script>
+ 
+</body>
+</html>

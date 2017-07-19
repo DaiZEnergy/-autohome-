@@ -1,0 +1,103 @@
+<div id="wrapper" direc>
+	<!-- 头部 -->
+	<div class="miniheader">
+		<a href="#/">
+			<img src="images/shoparlogo.png" alt="">
+		</a>
+	</div>
+	<!-- 次头部 -->
+	<div class="shphead">
+		<a href="" class="btnShowNav" onclick="history.back()">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+		</a>
+		<h2>我的订单</h2>
+		<a href="" class="glyphicon glyphicon-option-horizontal">
+			
+		</a>
+	</div>
+	<!-- 导航 -->
+	 <div class="swiper-container nav-shopc">
+            <div class="swiper-wrapper ">
+                <a href="" class="swiper-slide srrolla">全部</a>
+                <a href="" class="swiper-slide srrolla">退款</a>
+                <a href="" class="swiper-slide srrolla">分期</a>
+                <a href="" class="swiper-slide srrolla">红包</a>
+                <a href="" class="swiper-slide srrolla">钱包</a>
+                <a href="" class="swiper-slide srrolla">礼品</a>
+                <a href="" class="swiper-slide srrolla">收藏</a>
+            </div>
+        </div>
+        <ul class="list-base">
+		<li ng-repeat="item in cart">
+			<div class="fn-clear fl">
+				<img ng-src="{{item.img}}" alt="">
+			</div>
+			<div class="des fr">
+				<h3>{{item.describe}}</h3>
+				<p class="des-a">
+				&nbsp;{{item.tit}}&nbsp;</p>
+				<p class="zhibao">
+				<span class="item fl jiage">{{item.price}}</span>
+					<button class="jia" 
+					ng-click="set(item.goodsId,false)">-</button>
+					<input type="text" class="jiajian" ng-model="item.num" readonly>
+					<button class="jia" ng-click="set(item.goodsId,true)">+</button>
+				<button  ng-click="remcar(item.goodsId)">
+					<span class="glyphicon glyphicon-folder-close dels">
+					
+					</span>
+				</button>
+				</p>
+			</div>
+		</li>
+	</ul>
+	<!-- 购物车没商品显示 -->
+	<div class="myorder-noresult" ng-show="{{!cart.length}}">
+		
+        您暂时没有任何订单。<a href="#/list">去逛逛有没有中意的爱车吧></a>
+	</div>
+	<!-- 模态框 -->
+	<div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+   <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">确认框</h4>
+      </div>
+      <div class="modal-body">
+        <p>您确认要割舍{{num}}辆爱车吗？</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary" ng-click="clearC()">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+	<!-- 底部购物车计算 -->
+	<div class="floor-container">
+		<div class="shopp1">
+		<span class="shopp2">
+			数量：<span class="shopnum"> {{num}}</span>
+		</span>
+			合计: <span class="sprice">{{allPrice|currency:"￥"}}万</span>
+
+			
+		</div>
+		<div class="shopp">
+			去结算()
+		</div>
+	</div>
+	
+	<!-- 清空购物车 -->
+	<div class="clearcar"  data-toggle="modal" data-target="#abcd" ng-click="cca()" >
+		清空
+	</div>
+	
+	<!-- 返回顶部按钮 -->
+	<div id="ret" >
+        	<a href="">
+        		<span class="glyphicon glyphicon-open"></span>
+        	</a>
+        </div>
+</div>

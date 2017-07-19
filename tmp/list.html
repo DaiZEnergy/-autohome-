@@ -1,0 +1,68 @@
+<div id="wrapper" direc>
+<!-- 头部 -->
+	<header class="header">
+		<div class="header-box">
+			<img src="images/logol.png" alt="">
+		</div>
+		<div class="area">
+			北京
+			<span class="glyphicon glyphicon-menu-down"></span>
+		</div>
+		<input type="text" class="iseach" placeholder="品牌/车型/车系" ng-model="seach">
+		<span class="glyphicon glyphicon-list mu">
+			
+		</span>
+	</header>
+	<!-- 下一块 -->
+	<div class="filter">
+		<div class="filter-skip1">默认排序</div>
+		<div class="filter-skip">品牌</div>
+		<div class="filter-skip">价格</div>
+		<div class="filter-skip">级别</div>
+		<div class="filter-skip">筛选</div>
+	</div>
+	<div class="nheader">
+		<img src="images/mais.jpg" alt="">
+	</div>
+	<ul class="list-base">
+		<li ng-repeat="item in data|filter:{describe:seach}">
+			<div class="fn-clear fl">
+				<img ng-src="{{item.img}}" alt="">
+			</div>
+			<div class="des fr">
+				<h3>{{item.describe}}</h3>
+				<p class="des-a">
+				&nbsp;{{item.tit}}&nbsp;</p>
+				<p class="zhibao">
+				<span class="item">{{item.price}}万</span>
+				<span class="tag-green">质保</span>
+				<button id="addcc" ng-click="set(item.goodsId,true)" ng-mousedown="fly()"  >
+					<span class="glyphicon glyphicon-shopping-cart">
+					
+					</span>
+				</button>
+				</p>
+			</div>
+		</li>
+	</ul>
+	<!-- 底部 -->
+	    <div class="floor-container">
+            <a href="#/" class="floor-a">首页</a>
+            <a href="#/list" class="floor-a lista">列表页</a>
+            <a href="#/shopcar" class="floor-a flybox">购物车
+            <span class="carnum" >
+            	{{num}}
+            </span>
+            </a>
+        </div>
+        <!--  重新刷新页面 -->
+      <!--   <div id="updateaa" onclick="location.reload()">
+          <span class="glyphicon glyphicon-refresh"></span>
+      </div> -->
+	<!-- 返回顶部按钮 -->
+	<div id="ret" >
+        	<a href="">
+        		<span class="glyphicon glyphicon-open"></span>
+        	</a>
+        </div>
+</div>
